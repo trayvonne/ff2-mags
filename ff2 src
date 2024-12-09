@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "FF2 MAGZ",
+    Name = "AI FF2 MAGZ",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
     LoadingTitle = "made by ts scripts",
     LoadingSubtitle = "currently detected",
@@ -48,8 +48,15 @@ local Window = Rayfield:CreateWindow({
  })
 
  local Button = MainTab:CreateButton({
-    Name = "Blatant Mags",
+    Name = "Legit Mags Script",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/pnoiiiiiiiiiiiii/selfemade-ff2/main/ff"))()    
-    end,
+        local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local catchRight = character:FindFirstChild("CatchRight")
+        
+        if catchRight and catchRight:IsA("Part") then
+            catchRight.Size = Vector3.new(10, 10, 10)
+        end
+            end,
  })
